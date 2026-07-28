@@ -1,6 +1,13 @@
 name: Site de documentation
 
 # Publie le contenu de docs/ sur GitHub Pages.
+#
+# Pages doit avoir été activé une fois à la main sur le dépôt :
+#   Settings → Pages → Build and deployment → Source : GitHub Actions
+# Le jeton des Actions n'a pas le droit de créer le site lui-même (l'API
+# répond « Resource not accessible by integration »). Tant que ce n'est pas
+# fait, ce workflow se termine proprement en signalant ce qu'il reste à faire,
+# plutôt que d'échouer sur une erreur HTTP peu parlante.
 on:
   push:
     branches: [main, claude/dapp-pc-idea-nfdeez]
@@ -29,17 +36,62 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Vérifier que Pages est prêt
+        id: preflight
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+
+          if ! config=$(gh api "repos/${GITHUB_REPOSITORY}/pages" 2>/dev/null); then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=GitHub Pages n'est pas activé::Ouvrez Settings → Pages, puis choisissez « GitHub Actions » comme source. Ce workflow publiera alors docs/ automatiquement."
+            exit 0
+          fi
+
+          build_type=$(jq -r '.build_type // "legacy"' <<<"$config")
+          echo "Source Pages détectée : $build_type"
+
+          if [ "$build_type" != "workflow" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Pages publie depuis une branche::La source est réglée sur « Deploy from a branch » : le site est déjà servi directement depuis docs/, ce workflow n'a rien à faire. Pour passer par les Actions, choisissez « GitHub Actions » dans Settings → Pages."
+            exit 0
+          fi
+
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
       - name: Configurer Pages
+        if: steps.preflight.outputs.ready == 'true'
         uses: actions/configure-pages@v5
-        with:
-          # Active Pages sur le dépôt si ce n'est pas déjà fait.
-          enablement: true
 
       - name: Préparer l'artefact
+        if: steps.preflight.outputs.ready == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
 
       - name: Publier
         id: deployment
+        if: steps.preflight.outputs.ready == 'true'
         uses: actions/deploy-pages@v4
+
+      - name: Récapitulatif
+        if: always()
+        run: |
+          if [ "${{ steps.preflight.outputs.ready }}" = "true" ]; then
+            echo "### Site publié :rocket:" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "${{ steps.deployment.outputs.page_url }}" >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo "### Publication en attente"
+              echo ""
+              echo "GitHub Pages doit être activé une fois sur le dépôt :"
+              echo ""
+              echo "1. Ouvrir **Settings → Pages**"
+              echo "2. Sous *Build and deployment*, choisir **Source : GitHub Actions**"
+              echo "3. Relancer ce workflow"
+              echo ""
+              echo "Le jeton des Actions ne peut pas activer Pages lui-même."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
