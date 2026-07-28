@@ -1,0 +1,58 @@
+appId: dev.veqta.aslerec
+productName: AsleRec
+copyright: Copyright © 2026 VeqtaDev
+
+directories:
+  buildResources: build
+  output: release/${version}
+
+files:
+  - out/**/*
+  - package.json
+  - '!**/.vscode/*'
+  - '!src/*'
+  - '!scripts/*'
+  - '!electron.vite.config.{js,ts,mjs,cjs}'
+  - '!{.eslintrc,.editorconfig,.gitignore,.prettierrc}'
+  - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
+  - '!release/*'
+
+# Les binaires FFmpeg/FFprobe doivent rester des fichiers réels sur le disque
+# (impossible de les exécuter depuis l'archive asar).
+asarUnpack:
+  - '**/node_modules/ffmpeg-static/**'
+  - '**/node_modules/ffprobe-static/**'
+
+win:
+  icon: build/icon.ico
+  target:
+    - target: nsis
+      arch:
+        - x64
+  artifactName: AsleRec-Setup-${version}.${ext}
+  executableName: AsleRec
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  allowElevation: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: AsleRec
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
+  installerSidebar: build/installerSidebar.bmp
+  uninstallerSidebar: build/installerSidebar.bmp
+  deleteAppDataOnUninstall: false
+  runAfterFinish: true
+  license: LICENSE.txt
+  displayLanguageSelector: false
+  installerLanguages:
+    - fr_FR
+    - en_US
+  language: '1036'
+
+portable:
+  artifactName: AsleRec-Portable-${version}.${ext}

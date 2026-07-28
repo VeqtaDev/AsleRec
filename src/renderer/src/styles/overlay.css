@@ -1,0 +1,170 @@
+@import './tokens.css';
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+  user-select: none;
+  font-family: var(--font);
+}
+
+.overlay-surface {
+  position: fixed;
+  inset: 0;
+  cursor: crosshair;
+}
+
+/* Voile appliqué tant qu'aucune zone n'est tracée. */
+.overlay-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 6, 8, 0.44);
+  animation: overlay-fade var(--duration) var(--ease-out);
+}
+
+@keyframes overlay-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Réticule de visée. */
+.overlay-guide {
+  position: absolute;
+  background: rgba(255, 45, 63, 0.55);
+  pointer-events: none;
+}
+
+.overlay-guide--v {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+.overlay-guide--h {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+/**
+ * L'assombrissement extérieur est obtenu par une ombre portée géante :
+ * la zone sélectionnée reste parfaitement nette, sans second calque.
+ */
+.overlay-selection {
+  position: absolute;
+  border: 1.5px solid var(--red);
+  box-shadow:
+    0 0 0 100vmax rgba(6, 6, 8, 0.52),
+    0 0 22px rgba(255, 45, 63, 0.35);
+  cursor: crosshair;
+}
+
+.overlay-thirds {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, transparent 33.33%, rgba(255, 255, 255, 0.16) 33.33%, rgba(255, 255, 255, 0.16) calc(33.33% + 1px), transparent calc(33.33% + 1px)),
+    linear-gradient(to right, transparent 66.66%, rgba(255, 255, 255, 0.16) 66.66%, rgba(255, 255, 255, 0.16) calc(66.66% + 1px), transparent calc(66.66% + 1px)),
+    linear-gradient(to bottom, transparent 33.33%, rgba(255, 255, 255, 0.16) 33.33%, rgba(255, 255, 255, 0.16) calc(33.33% + 1px), transparent calc(33.33% + 1px)),
+    linear-gradient(to bottom, transparent 66.66%, rgba(255, 255, 255, 0.16) 66.66%, rgba(255, 255, 255, 0.16) calc(66.66% + 1px), transparent calc(66.66% + 1px));
+}
+
+.overlay-handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--red);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-handle--tl {
+  top: -6px;
+  left: -6px;
+}
+.overlay-handle--tr {
+  top: -6px;
+  right: -6px;
+}
+.overlay-handle--bl {
+  bottom: -6px;
+  left: -6px;
+}
+.overlay-handle--br {
+  bottom: -6px;
+  right: -6px;
+}
+
+.overlay-size {
+  position: absolute;
+  top: -36px;
+  left: 0;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  background: var(--red);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  box-shadow: var(--shadow-red);
+  white-space: nowrap;
+}
+
+/* Repli quand la sélection colle au bord haut de l'écran. */
+.overlay-size--inside {
+  top: 8px;
+  left: 8px;
+}
+
+.overlay-hint {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: var(--radius-pill);
+  background: rgba(18, 18, 21, 0.86);
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--hairline);
+  color: var(--text-secondary);
+  font-size: 13px;
+  box-shadow: var(--shadow-lg);
+  animation: overlay-hint-in var(--duration-slow) var(--ease-out);
+  pointer-events: none;
+}
+
+.overlay-hint strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.overlay-hint__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 4px var(--red-tint);
+}
+
+.overlay-hint__sep {
+  width: 1px;
+  height: 14px;
+  background: var(--hairline-strong);
+}
+
+@keyframes overlay-hint-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+}

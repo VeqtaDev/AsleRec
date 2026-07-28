@@ -1,0 +1,216 @@
+@import './tokens.css';
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+  user-select: none;
+  font-family: var(--font);
+  color: var(--text);
+}
+
+#root {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+
+.bar {
+  -webkit-app-region: drag;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 12px 0 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(18, 18, 21, 0.9);
+  backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid var(--hairline-strong);
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  animation: bar-in var(--duration-slow) var(--ease-out);
+}
+
+.bar--paused {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.bar--countdown {
+  padding: 0 12px 0 14px;
+  gap: 12px;
+}
+
+@keyframes bar-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+}
+
+/* Pastille d'enregistrement --------------------------------------- */
+
+.rec-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 0 var(--red-glow);
+  animation: rec-pulse 1.8s var(--ease) infinite;
+  flex: none;
+}
+
+.rec-dot--paused {
+  background: var(--text-tertiary);
+  animation: none;
+  box-shadow: none;
+}
+
+@keyframes rec-pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--red-glow);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(255, 45, 63, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 45, 63, 0);
+  }
+}
+
+.timer {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  min-width: 62px;
+}
+
+.bar-divider {
+  width: 1px;
+  height: 22px;
+  background: var(--hairline-strong);
+  margin: 0 2px;
+}
+
+/* Boutons ---------------------------------------------------------- */
+
+.bar-btn {
+  -webkit-app-region: no-drag;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  transition:
+    background var(--duration-fast) var(--ease),
+    transform var(--duration-fast) var(--ease);
+}
+
+.bar-btn:hover {
+  background: var(--surface-hover);
+}
+
+.bar-btn:active {
+  transform: scale(0.92);
+}
+
+.bar-btn--stop {
+  background: var(--red);
+  color: var(--text-on-red);
+  box-shadow: var(--shadow-red);
+}
+
+.bar-btn--stop:hover {
+  background: var(--red-bright);
+}
+
+.bar-btn--ghost {
+  background: transparent;
+  color: var(--text-tertiary);
+}
+
+.bar-btn--ghost:hover {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Décompte --------------------------------------------------------- */
+
+.countdown {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  box-shadow: var(--shadow-red);
+  animation: countdown-pop var(--duration) var(--ease-out);
+}
+
+@keyframes countdown-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+
+.countdown-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Finalisation ----------------------------------------------------- */
+
+.bar-spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2.5px solid var(--surface-active);
+  border-top-color: var(--red);
+  animation: spin 720ms linear infinite;
+  flex: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bar-processing {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  padding-right: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.bar-progress {
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-active);
+  overflow: hidden;
+}
+
+.bar-progress__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--red);
+  transition: width var(--duration) var(--ease);
+}

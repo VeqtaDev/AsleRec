@@ -1,0 +1,70 @@
+/**
+ * Jetons de design d'AsleRec.
+ * Palette volontairement réduite : noir profond, blanc, et un rouge unique
+ * réservé à l'enregistrement et aux actions principales.
+ */
+:root {
+  /* Rouge */
+  --red: #ff2d3f;
+  --red-bright: #ff4b5c;
+  --red-deep: #d81326;
+  --red-tint: rgba(255, 45, 63, 0.14);
+  --red-tint-strong: rgba(255, 45, 63, 0.24);
+  --red-glow: rgba(255, 45, 63, 0.42);
+
+  /* Fonds */
+  --bg: #0b0b0d;
+  --bg-raised: #121215;
+  --bg-sheet: #17171b;
+  --surface: rgba(255, 255, 255, 0.055);
+  --surface-hover: rgba(255, 255, 255, 0.085);
+  --surface-active: rgba(255, 255, 255, 0.12);
+  --hairline: rgba(255, 255, 255, 0.1);
+  --hairline-strong: rgba(255, 255, 255, 0.16);
+
+  /* Texte */
+  --text: #f7f7f8;
+  --text-secondary: rgba(247, 247, 248, 0.62);
+  --text-tertiary: rgba(247, 247, 248, 0.38);
+  --text-on-red: #ffffff;
+
+  /* Rayons — courbure continue façon iOS */
+  --radius-xs: 8px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Ombres */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 64px rgba(0, 0, 0, 0.6);
+  --shadow-red: 0 8px 28px rgba(255, 45, 63, 0.34);
+
+  /* Mouvement — courbes empruntées aux transitions iOS */
+  --ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 140ms;
+  --duration: 240ms;
+  --duration-slow: 420ms;
+
+  /* Typographie */
+  --font: -apple-system, 'SF Pro Text', 'Segoe UI Variable Text', 'Segoe UI',
+    system-ui, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: -apple-system, 'SF Pro Display', 'Segoe UI Variable Display',
+    'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'Cascadia Mono', 'Segoe UI Mono', ui-monospace, monospace;
+
+  /* Gabarit */
+  --titlebar-height: 44px;
+  --sidebar-width: 232px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration: 0ms;
+    --duration-slow: 0ms;
+  }
+}
