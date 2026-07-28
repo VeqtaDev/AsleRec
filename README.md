@@ -69,6 +69,19 @@ npm run dist       # installeur NSIS dans release/<version>/   (Windows requis)
 notification et le bandeau de l'installeur. Le script `scripts/generate-icons.mjs`
 dessine et encode PNG / ICO / BMP à la main, sans aucune dépendance graphique.
 
+### Publier le site de documentation
+
+Le site vit dans `docs/`. GitHub Pages doit être activé une fois à la main :
+le jeton des Actions n'a pas le droit de le faire lui-même. Deux options, au
+choix, dans **Settings → Pages** :
+
+| Source | Réglage | Effet |
+|---|---|---|
+| **GitHub Actions** *(conseillé)* | Source → *GitHub Actions* | Le workflow `pages.yml` publie `docs/` à chaque modification |
+| **Deploy from a branch** | Branche `claude/dapp-pc-idea-nfdeez`, dossier `/docs` | Publication immédiate, sans workflow |
+
+Le site est ensuite servi sur `https://veqtadev.github.io/AsleRec/`.
+
 ---
 
 ## Architecture
