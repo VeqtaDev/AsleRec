@@ -45,21 +45,30 @@ jobs:
           path: release/*/AsleRec-Setup-*.exe
           if-no-files-found: error
 
+      # Déclenchement manuel accepté en plus des tags : le tag est alors déduit
+      # de la version du package.json et créé par `gh release create` lui-même.
       - name: Créer la release et y joindre l'installeur
-        if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v') || github.event_name == 'workflow_dispatch'
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          tag="${GITHUB_REF_NAME}"
+
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            tag="${GITHUB_REF_NAME}"
+          else
+            tag="v$(node -p "require('./package.json').version")"
+          fi
+
           installer=$(find release -name 'AsleRec-Setup-*.exe' | head -n 1)
-          echo "Installeur trouvé : $installer"
+          echo "Tag : $tag — installeur : $installer"
 
           if gh release view "$tag" >/dev/null 2>&1; then
             gh release upload "$tag" "$installer" --clobber
           else
             gh release create "$tag" "$installer" \
+              --target "${GITHUB_SHA}" \
               --title "AsleRec $tag" \
               --notes-file .github/release-notes.md
           fi
