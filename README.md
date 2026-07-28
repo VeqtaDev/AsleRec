@@ -8,6 +8,9 @@ Sélection de zone façon `Maj + Win + S`, audio du PC et micro, découpe et
 recadrage intégrés, export audio. Le tout dans une interface sombre inspirée
 d'iOS, en rouge, noir et blanc.
 
+**[📖 Documentation](https://veqtadev.github.io/AsleRec/)** ·
+**[⬇️ Télécharger l'installeur](https://github.com/VeqtaDev/AsleRec/releases/latest)**
+
 </div>
 
 ---

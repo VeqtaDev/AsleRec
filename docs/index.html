@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AsleRec — enregistreur d'écran pour Windows</title>
+    <meta
+      name="description"
+      content="AsleRec enregistre votre écran en deux touches : sélection de zone, son du PC et micro, découpe et export intégrés. Application Windows gratuite et open source."
+    />
+    <meta name="theme-color" content="#0b0b0d" />
+
+    <meta property="og:title" content="AsleRec — enregistreur d'écran pour Windows" />
+    <meta
+      property="og:description"
+      content="Sélection de zone, audio du PC et micro, découpe et recadrage intégrés. Gratuit et open source."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="img/enregistrer.png" />
+
+    <link rel="icon" href="img/icon.png" type="image/png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="#top">
+          <span class="brand__mark" aria-hidden="true"><span></span></span>
+          AsleRec
+        </a>
+        <nav class="topnav">
+          <a href="#fonctionnalites">Fonctionnalités</a>
+          <a href="#guide">Guide</a>
+          <a href="#raccourcis">Raccourcis</a>
+          <a href="#installation">Installation</a>
+          <a href="#faq">FAQ</a>
+          <a href="#developpement">Développement</a>
+        </nav>
+        <a
+          class="btn btn--primary btn--sm"
+          href="https://github.com/VeqtaDev/AsleRec/releases/latest"
+          >Télécharger</a
+        >
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ============================================================ -->
+      <section class="hero wrap">
+        <span class="hero__badge"><b>v1.0</b> Windows 10 et 11 · 64 bits</span>
+
+        <h1>Enregistrez votre écran.<br /><em>Sans y penser.</em></h1>
+
+        <p class="hero__lead">
+          Un raccourci, un rectangle, c'est parti. Le son de l'ordinateur et votre
+          voix sont capturés ensemble, et la découpe se fait sans quitter
+          l'application.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="https://github.com/VeqtaDev/AsleRec/releases/latest">
+            Télécharger l'installeur
+          </a>
+          <a class="btn btn--ghost" href="https://github.com/VeqtaDev/AsleRec">
+            Voir le code source
+          </a>
+        </div>
+
+        <p class="hero__note">Gratuit, open source, sans compte ni publicité.</p>
+
+        <div class="hero__shot">
+          <img
+            src="img/enregistrer.png"
+            alt="Fenêtre principale d'AsleRec : deux cartes pour enregistrer une zone ou l'écran entier, réglages de qualité et d'audio en dessous."
+            width="1280"
+            height="840"
+          />
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="fonctionnalites" class="wrap">
+        <div class="section__head">
+          <span class="section__eyebrow">Fonctionnalités</span>
+          <h2>Tout ce qu'il faut, rien de plus</h2>
+          <p>
+            AsleRec fait une chose : capturer un bout d'écran proprement, puis
+            vous laisser le découper. Pas de scènes, pas de sources, pas de
+            configuration à apprendre.
+          </p>
+        </div>
+
+        <div class="features">
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                <path d="M4 8.5V6.5A2.5 2.5 0 0 1 6.5 4h2" /><path d="M15.5 4h2A2.5 2.5 0 0 1 20 6.5v2" />
+                <path d="M20 15.5v2a2.5 2.5 0 0 1-2.5 2.5h-2" /><path d="M8.5 20h-2A2.5 2.5 0 0 1 4 17.5v-2" />
+                <circle cx="12" cy="12" r="2.6" />
+              </svg>
+            </span>
+            <h3>Sélection de zone</h3>
+            <p>
+              Comme <kbd>Maj</kbd> + <kbd>Win</kbd> + <kbd>S</kbd>, mais ça filme.
+              Tracez le rectangle, l'enregistrement démarre tout seul.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 9.5h3.2L12 5.4v13.2L7.2 14.5H4Z" />
+                <path d="M16.2 9.4a3.6 3.6 0 0 1 0 5.2" /><path d="M18.8 6.8a7.2 7.2 0 0 1 0 10.4" />
+              </svg>
+            </span>
+            <h3>Son du PC et micro</h3>
+            <p>
+              Les deux sources sont capturées et mixées, chacune activable et
+              dosable séparément avant ou pendant l'enregistrement.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6.5" r="2.5" /><circle cx="6" cy="17.5" r="2.5" />
+                <path d="M20 4 8.1 15.7" /><path d="M14.4 12.3 20 20" /><path d="M8.1 8.3 12 12" />
+              </svg>
+            </span>
+            <h3>Découpe intégrée</h3>
+            <p>
+              Une timeline avec deux poignées. Gardez le passage utile, jetez le
+              reste, ou exportez juste un extrait dans un fichier à part.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.5 2.5v13a2 2 0 0 0 2 2h13" /><path d="M2.5 6.5h13a2 2 0 0 1 2 2v13" />
+              </svg>
+            </span>
+            <h3>Recadrage</h3>
+            <p>
+              Un cadre à la souris directement sur le lecteur, avec repères des
+              tiers. Utile quand la zone choisie était un peu trop large.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+                <path d="M3 12h1.6" /><path d="M7.4 8.4v7.2" /><path d="M11.1 5.4v13.2" />
+                <path d="M14.8 9.2v5.6" /><path d="M18.5 7.2v9.6" /><path d="M21.6 11h-.2" />
+              </svg>
+            </span>
+            <h3>Export audio</h3>
+            <p>
+              Récupérez la bande son seule en MP3, M4A ou WAV, sur toute la durée
+              ou seulement sur la sélection.
+            </p>
+          </article>
+
+          <article class="feature">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="6" width="19" height="12" rx="2.6" />
+                <path d="M6.4 9.6h.01M9.7 9.6h.01M13 9.6h.01M16.3 9.6h.01" />
+                <path d="M8.4 15.6h7.2" />
+              </svg>
+            </span>
+            <h3>Raccourcis globaux</h3>
+            <p>
+              Ils fonctionnent même quand la fenêtre est fermée : AsleRec attend
+              dans la zone de notification, prêt à démarrer.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="guide" class="wrap">
+        <div class="section__head">
+          <span class="section__eyebrow">Guide</span>
+          <h2>Prise en main</h2>
+          <p>De la première ouverture au fichier final, en quatre étapes.</p>
+        </div>
+
+        <div class="step">
+          <div class="step__text">
+            <span class="step__num">1</span>
+            <h3>Choisissez où ranger vos vidéos</h3>
+            <p>
+              Au premier lancement, un court assistant vous demande le dossier de
+              destination, la qualité par défaut et si AsleRec doit démarrer avec
+              Windows. Tout reste modifiable ensuite dans les réglages.
+            </p>
+            <p>
+              Chaque enregistrement terminé y est écrit automatiquement, nommé
+              <code>AsleRec 2026-07-28 14-32-08.mp4</code> — un tri par nom suffit
+              donc à les remettre dans l'ordre.
+            </p>
+          </div>
+          <figure class="shot">
+            <img
+              src="img/premier-lancement.png"
+              alt="Assistant de premier lancement d'AsleRec, étape Bienvenue."
+              width="1280"
+              height="840"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div class="step step--flip">
+          <div class="step__text">
+            <span class="step__num">2</span>
+            <h3>Tracez la zone à filmer</h3>
+            <p>
+              <kbd>Ctrl</kbd> + <kbd>Maj</kbd> + <kbd>R</kbd> assombrit l'écran et
+              affiche un réticule. Cliquez-glissez : les dimensions exactes en
+              pixels s'affichent pendant le tracé.
+            </p>
+            <ul>
+              <li><strong>Entrée</strong> — prendre l'écran entier</li>
+              <li><strong>Échap</strong> ou clic droit — annuler</li>
+              <li>
+                <strong>Ctrl + Maj + F</strong> — filmer directement l'écran où se
+                trouve le curseur, sans passer par la sélection
+              </li>
+            </ul>
+            <p>
+              Un décompte de 3 secondes vous laisse le temps de vous placer, puis
+              une barre flottante apparaît avec le chronomètre, la pause et
+              l'arrêt. Elle n'apparaît pas dans la vidéo.
+            </p>
+          </div>
+          <figure class="shot">
+            <img
+              src="img/selection-zone.png"
+              alt="Calque de sélection de zone : cadre rouge avec poignées, repères des tiers et badge indiquant 890 × 490 pixels."
+              width="1440"
+              height="900"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <p class="hero__note" style="text-align: left; margin: -18px 0 0">
+          Capture réalisée sur fond noir pour la démonstration : à l'usage,
+          l'intérieur du cadre est transparent et laisse voir votre écran.
+        </p>
+
+        <div class="step">
+          <div class="step__text">
+            <span class="step__num">3</span>
+            <h3>Retrouvez tout dans la bibliothèque</h3>
+            <p>
+              Vignette, durée, définition, poids et présence d'une piste audio :
+              chaque enregistrement est résumé d'un coup d'œil. Un clic sur le nom
+              le renomme, un clic sur la vignette ouvre l'éditeur.
+            </p>
+            <p>
+              La bibliothèque se réconcilie avec le dossier de sortie à chaque
+              ouverture : les vidéos que vous y déposez à la main y apparaissent,
+              celles que vous supprimez en disparaissent.
+            </p>
+          </div>
+          <figure class="shot">
+            <img
+              src="img/bibliotheque.png"
+              alt="Bibliothèque d'AsleRec : trois enregistrements affichés en cartes avec vignette, durée et métadonnées."
+              width="1280"
+              height="840"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div class="step step--flip">
+          <div class="step__text">
+            <span class="step__num">4</span>
+            <h3>Découpez, recadrez, exportez</h3>
+            <p>
+              Déplacez les deux poignées de la timeline pour cerner le passage
+              voulu ; la lecture boucle sur la sélection, vous voyez donc
+              exactement ce qui sera exporté.
+            </p>
+            <ul>
+              <li><strong>I</strong> et <strong>O</strong> — placer le début et la fin à la position courante</li>
+              <li><strong>Espace</strong> — lecture / pause</li>
+              <li><strong>Enregistrer l'extrait à part</strong> — nouveau fichier, l'original est intact</li>
+              <li><strong>Appliquer au fichier d'origine</strong> — remplace l'enregistrement</li>
+              <li><strong>Extraire le son</strong> — MP3, M4A ou WAV</li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img
+              src="img/editeur.png"
+              alt="Éditeur d'AsleRec : lecteur vidéo, barre de transport et timeline avec poignées de sélection."
+              width="1280"
+              height="840"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="raccourcis" class="wrap">
+        <div class="section__head">
+          <span class="section__eyebrow">Raccourcis</span>
+          <h2>Les quatre touches à connaître</h2>
+          <p>
+            Actifs partout dans Windows, même application fermée. Tous
+            personnalisables dans <strong>Réglages → Raccourcis clavier</strong> :
+            cliquez sur le champ et appuyez sur la combinaison voulue.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Raccourci</th>
+                <th>Détail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Enregistrer une zone</td>
+                <td><kbd>Ctrl</kbd> + <kbd>Maj</kbd> + <kbd>R</kbd></td>
+                <td>Ouvre le calque de sélection</td>
+              </tr>
+              <tr>
+                <td>Enregistrer l'écran entier</td>
+                <td><kbd>Ctrl</kbd> + <kbd>Maj</kbd> + <kbd>F</kbd></td>
+                <td>Écran où se trouve le curseur, sans étape intermédiaire</td>
+              </tr>
+              <tr>
+                <td>Arrêter</td>
+                <td><kbd>Ctrl</kbd> + <kbd>Maj</kbd> + <kbd>S</kbd></td>
+                <td>Termine et écrit le fichier</td>
+              </tr>
+              <tr>
+                <td>Pause / reprise</td>
+                <td><kbd>Ctrl</kbd> + <kbd>Maj</kbd> + <kbd>P</kbd></td>
+                <td>Suspend sans couper l'enregistrement</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <span class="callout__mark" aria-hidden="true">!</span>
+          <div>
+            Si une autre application occupe déjà une combinaison, Windows refuse
+            de l'attribuer. AsleRec vous le signale immédiatement plutôt que de
+            laisser un raccourci muet — choisissez-en simplement un autre.
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="qualite" class="wrap">
+        <div class="section__head">
+          <span class="section__eyebrow">Qualité</span>
+          <h2>240p à 1080p, 24 à 60 images par seconde</h2>
+          <p>
+            Le préréglage de définition est un <strong>plafond</strong>, pas une
+            cible : une zone de 300 pixels de haut enregistrée en « 720p » reste
+            nette à sa taille réelle au lieu d'être agrandie et floue.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Quelle définition choisir ?</h3>
+            <p>
+              <strong>720p</strong> convient à presque tout : lisible, léger,
+              rapide à envoyer. <strong>1080p</strong> pour du texte fin ou du
+              code. <strong>480p</strong> et <strong>240p</strong> quand le poids
+              du fichier compte plus que le détail.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Et la fluidité ?</h3>
+            <p>
+              <strong>30 i/s</strong> par défaut, suffisant pour une démonstration
+              d'interface. Montez à <strong>60 i/s</strong> pour du jeu ou des
+              animations rapides, descendez à <strong>24</strong> pour alléger.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Format de sortie</h3>
+            <p>
+              <strong>MP4</strong> (H.264 + AAC) par défaut — lisible partout,
+              acceptable par tous les sites. <strong>WebM</strong> reste
+              disponible dans les réglages si vous le préférez.
+            </p>
+          </div>
+        </div>
+
+        <figure class="shot" style="margin-top: 28px">
+          <img
+            src="img/reglages.png"
+            alt="Page Réglages d'AsleRec : dossier de destination, format, définition, fluidité et options audio."
+            width="1280"
+            height="840"
+            loading="lazy"
+          />
+        </figure>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="installation" class="wrap">
+        <div class="section__head">
+          <span class="section__eyebrow">Installation</span>
+          <h2>Deux minutes, pas de dépendances</h2>
+          <p>
+            FFmpeg est déjà inclus dans l'application : il n'y a rien d'autre à
+            installer.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card card--accent">
+            <h3>Depuis l'installeur</h3>
+            <ol>
+              <li>
+                Téléchargez <code>AsleRec-Setup-1.0.0.exe</code> depuis la
+                <a href="https://github.com/VeqtaDev/AsleRec/releases/latest">dernière release</a>.
+              </li>
+              <li>Lancez-le et choisissez le dossier d'installation.</li>
+              <li>
+                Au premier démarrage, indiquez où ranger les enregistrements.
+              </li>
+            </ol>
+            <p style="margin-top: 14px">
+              L'installeur n'étant pas signé numériquement, Windows SmartScreen
+              peut afficher un avertissement : <em>Informations complémentaires</em>
+              puis <em>Exécuter quand même</em>.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Depuis les sources</h3>
+            <pre><code>git clone https://github.com/VeqtaDev/AsleRec.git
+cd AsleRec
+npm install
+npm run dev    <span class="c"># lancer en développement</span>
+npm run dist   <span class="c"># construire l'installeur</span></code></pre>
+            <p style="margin-top: 14px">
+              <code>npm run dist</code> doit être exécuté sous Windows : le
+              paramétrage de l'icône et des métadonnées de l'exécutable passe par
+              <code>rcedit</code>, qui exige Wine 32 bits sur Linux.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="faq" class="wrap">
+        <div class="section__head">
+          <span class="section__eyebrow">FAQ</span>
+          <h2>Questions fréquentes</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Le son de mon ordinateur n'est pas enregistré</summary>
+            <div>
+              <p>
+                Vérifiez que <strong>Capturer le son de l'ordinateur</strong> est
+                activé dans les réglages, et que le volume associé n'est pas à 0 %.
+              </p>
+              <p>
+                La capture passe par la boucle audio de Windows : si aucun son ne
+                sort effectivement des haut-parleurs pendant l'enregistrement — par
+                exemple parce que l'application source est en sourdine — la piste
+                sera silencieuse.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Fermer la fenêtre arrête-t-il l'enregistrement ?</summary>
+            <div>
+              <p>
+                Non. Le moteur de capture tourne dans un processus séparé et
+                l'enregistrement continue. La croix de la fenêtre range simplement
+                AsleRec dans la zone de notification, près de l'horloge.
+              </p>
+              <p>
+                Pour quitter réellement l'application, utilisez
+                <strong>Réglages → Quitter</strong>, ou le menu de l'icône dans la
+                zone de notification.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>La barre de contrôle apparaît-elle dans la vidéo ?</summary>
+            <div>
+              <p>
+                Non, ni elle ni le calque de sélection. Les deux sont marqués comme
+                protégés contre la capture, une fonction de Windows 10 et 11 qui les
+                exclut de tout enregistrement d'écran.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Où sont rangés mes enregistrements ?</summary>
+            <div>
+              <p>
+                Dans le dossier choisi au premier lancement — par défaut
+                <code>Vidéos\AsleRec</code>. Vous pouvez en changer à tout moment
+                dans <strong>Réglages → Dossier de destination</strong>.
+              </p>
+              <p>
+                Les anciens fichiers ne sont pas déplacés, mais la bibliothèque
+                indexera les vidéos déjà présentes dans le nouveau dossier.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Puis-je enregistrer une seule fenêtre ?</summary>
+            <div>
+              <p>
+                Pas directement : AsleRec capture un écran ou une zone
+                rectangulaire de cet écran. Tracez la zone autour de la fenêtre
+                voulue — le résultat est identique tant que la fenêtre ne bouge pas.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>« Appliquer au fichier d'origine » est-il réversible ?</summary>
+            <div>
+              <p>
+                Non, cette action remplace définitivement l'enregistrement. Si vous
+                hésitez, préférez <strong>Enregistrer l'extrait à part</strong> :
+                un nouveau fichier est créé et l'original reste intact.
+              </p>
+              <p>
+                Le nouveau fichier n'écrase l'ancien qu'une fois l'encodage terminé
+                avec succès : une coupure de courant en cours de traitement ne
+                détruit pas la vidéo de départ.
+              </p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Windows SmartScreen bloque l'installeur</summary>
+            <div>
+              <p>
+                C'est attendu : l'exécutable n'est pas signé avec un certificat
+                d'éditeur, qui est payant. Cliquez sur
+                <em>Informations complémentaires</em> puis
+                <em>Exécuter quand même</em>.
+              </p>
+              <p>
+                Le code source est intégralement public, et l'installeur est
+                construit automatiquement par GitHub Actions à partir de ce code —
+                vous pouvez vérifier chaque étape dans l'onglet Actions du dépôt.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <section id="developpement" class="wrap">
+        <div class="section__head">
+          <span class="section__eyebrow">Développement</span>
+          <h2>Comment c'est fait</h2>
+          <p>
+            Electron pour la fenêtre, React pour l'interface, l'API média de
+            Chromium pour la capture et FFmpeg pour tout le reste.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>La capture, étape par étape</h3>
+            <ol>
+              <li>Le raccourci déclenche une session dans le processus principal.</li>
+              <li>
+                Un calque transparent par écran recueille le rectangle, converti en
+                pixels physiques via le facteur d'échelle de l'écran.
+              </li>
+              <li>
+                Chromium fournit le flux vidéo et l'audio système en boucle ; le
+                micro arrive par un second flux, mixé en Web Audio.
+              </li>
+              <li>
+                Recadrage et mise à l'échelle en direct dans un canvas — court-circuité
+                quand ni l'un ni l'autre n'est nécessaire.
+              </li>
+              <li>
+                Encodage H.264 accéléré matériellement, morceaux écrits au fil de
+                l'eau sur le disque plutôt qu'accumulés en mémoire.
+              </li>
+              <li>
+                À l'arrêt, FFmpeg remuxe vers MP4 en recopiant le flux vidéo tel
+                quel : quelques secondes suffisent.
+              </li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3>Contribuer</h3>
+            <p>
+              Les rapports de bug et les propositions sont les bienvenus dans les
+              <a href="https://github.com/VeqtaDev/AsleRec/issues">issues</a> du
+              dépôt.
+            </p>
+            <pre style="margin-top: 14px"><code>npm run typecheck  <span class="c"># vérification TypeScript</span>
+npm run build      <span class="c"># bundles de production</span>
+npm run icons      <span class="c"># régénérer icônes et bandeau</span></code></pre>
+          </div>
+        </div>
+
+        <div class="arch">
+          <div class="arch__item">
+            <h4>src/main</h4>
+            <p>
+              Processus principal : cycle de vie, sessions d'enregistrement,
+              fenêtres, raccourcis globaux, appels FFmpeg.
+            </p>
+          </div>
+          <div class="arch__item">
+            <h4>src/preload</h4>
+            <p>
+              Pont contextuel typé. Le rendu ne touche jamais directement à Node
+              ni au système de fichiers.
+            </p>
+          </div>
+          <div class="arch__item">
+            <h4>src/renderer</h4>
+            <p>
+              Quatre pages : interface principale, calque de sélection, barre
+              flottante et moteur de capture invisible.
+            </p>
+          </div>
+          <div class="arch__item">
+            <h4>src/shared</h4>
+            <p>
+              Types et noms de canaux communs aux deux côtés, pour que le
+              compilateur attrape les désaccords.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap footer__inner">
+        <div>
+          AsleRec — licence MIT. Embarque FFmpeg (LGPL v2.1+), non modifié.
+        </div>
+        <div class="footer__links">
+          <a href="https://github.com/VeqtaDev/AsleRec">Dépôt</a>
+          <a href="https://github.com/VeqtaDev/AsleRec/releases">Releases</a>
+          <a href="https://github.com/VeqtaDev/AsleRec/issues">Signaler un bug</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

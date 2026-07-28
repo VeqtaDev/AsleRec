@@ -1076,13 +1076,13 @@
   color: var(--red-bright);
 }
 
+/* La ligne passe à deux lignes plutôt que d'être coupée en plein mot. */
 .rec-card__meta {
   margin: 3px 0 0;
+  min-height: 2.7em;
   font-size: 12px;
+  line-height: 1.35;
   color: var(--text-tertiary);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .rec-card__actions {

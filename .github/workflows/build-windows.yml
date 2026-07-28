@@ -5,11 +5,14 @@ name: Installeur Windows
 # métadonnées de l'exécutable, ce qui n'est pas reproductible sur Linux.
 on:
   push:
-    branches: [main]
+    branches: [main, claude/dapp-pc-idea-nfdeez]
     tags: ['v*']
   pull_request:
     branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -42,8 +45,21 @@ jobs:
           path: release/*/AsleRec-Setup-*.exe
           if-no-files-found: error
 
-      - name: Joindre l'installeur à la release
+      - name: Créer la release et y joindre l'installeur
         if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v2
-        with:
-          files: release/*/AsleRec-Setup-*.exe
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          installer=$(find release -name 'AsleRec-Setup-*.exe' | head -n 1)
+          echo "Installeur trouvé : $installer"
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "$installer" --clobber
+          else
+            gh release create "$tag" "$installer" \
+              --title "AsleRec $tag" \
+              --notes-file .github/release-notes.md
+          fi
